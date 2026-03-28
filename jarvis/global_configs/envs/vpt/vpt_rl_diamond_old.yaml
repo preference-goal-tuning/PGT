@@ -1,0 +1,91 @@
+defaults:
+  - _self_
+
+close_ended: False
+seed: 19961103
+
+origin_resolution: [640, 360]
+resize_resolution: [128, 128]
+
+time_limit: 24000
+
+fast_reset: False
+slow_reset_interval: 9
+random_tp_range: 1000
+start_time: 0
+compute_delta_inventory: False
+candidate_preferred_spawn_biome: 
+  - plains
+candidate_weather: 
+  - clear
+
+task_conf:
+  vpt_native_test:
+    text: 'traj:[ctraj:vpt_native]'
+    reward_conf:
+      mine_block: 
+        oak_log:
+          num: 1
+          reward: 1.0
+          terminated: False
+        stone:
+          num: 1
+          reward: 1.0
+          terminated: False
+        cobblestone:
+          num: 1
+          reward: 0.09
+          terminated: False
+        iron_ore:
+          num: 1
+          reward: 1.33
+          terminated: False
+        diamond_ore:
+          num: 1
+          reward: 2.67
+          terminated: False
+
+      craft_item:
+        stick:
+          num: 4
+          reward: 0.25
+          terminated: False
+        crafting_table:
+          num: 1 
+          reward: 1.0
+          terminated: False
+        wooden_pickaxe:
+          num: 1
+          reward: 1.0
+          terminated: False
+        stone_pickaxe:
+          num: 1
+          reward: 1.0
+          terminated: False
+        furnace:
+          num: 1
+          reward: 1.0
+          terminated: False
+        torch:
+          num: 16
+          reward: 2.0
+          terminated: False
+        iron_ingot:
+          num: 1
+          reward: 4.0
+          terminated: False
+        iron_pickaxe:
+          num: 1
+          reward: 4.0
+          terminated: False
+        diamond_pickaxe:
+          num: 1
+          reward: 8.0
+          terminated: True
+
+
+enable_tasks:
+  - vpt_native_test
+
+# custom_init_commands:
+#   - /effect give @a night_vision 99999 250 true

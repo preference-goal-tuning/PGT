@@ -1,0 +1,49 @@
+
+defaults:
+  - base
+  - _self_
+
+task_conf:
+  traj_condition:
+    text: "To obtain wool, find a sheep, dye blue, and shear it."
+    obs_conf:
+      task: "collect: wool"
+      ref_video: "reference_videos/collect_wool.mp4"
+      ins_type: "${oc.env:INS_TYPE}"
+    reward_conf:
+      pickup: 
+        wool:
+          objs:
+            - white_wool
+            - blue_wool
+          quantity_rewarded: 1000
+          reward: 1.0
+
+
+candidate_preferred_spawn_biome: 
+  - plains
+candidate_weather: 
+  - clear
+
+summon_mobs:
+  - 
+    mob_name: sheep
+    range_x: [-5, 5]
+    range_z: [-3, 3]
+    number: 5
+
+custom_init_commands:
+  - /replaceitem entity @s weapon.mainhand minecraft:blue_dye 64
+  - /replaceitem entity @s weapon.offhand minecraft:shears
+
+masked_actions: 
+  inventory: 0
+  hotbar.1: 0
+  hotbar.2: 0
+  hotbar.3: 0
+  hotbar.4: 0
+  hotbar.5: 0
+  hotbar.6: 0
+  hotbar.7: 0
+  hotbar.8: 0
+  hotbar.9: 0

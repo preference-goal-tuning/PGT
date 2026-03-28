@@ -1,0 +1,184 @@
+defaults:
+  - _self_
+
+close_ended: True
+seed: 19961103
+
+origin_resolution: [640, 360]
+resize_resolution: [224, 224]
+
+time_limit: 100000
+init_inventory: 
+  10: 
+    type: obsidian
+    quantity: 16
+  11: 
+    type: iron_pickaxe
+    quantity: 1
+  12: 
+    type: flint_and_steel
+    quantity: 1
+  13:
+    type: dirt
+    quantity: 64
+  14:
+    type: bucket
+    quantity: 1
+  15:
+    type: iron_pickaxe
+    quantity: 1
+  16:
+    type: iron_hoe
+    quantity: 1
+  17:
+    type: wheat_seeds
+    quantity: 64
+  18:
+    type: oak_fence
+    quantity: 64
+  19:
+    type: oak_planks
+    quantity: 64
+  20:
+    type: crafting_table
+    quantity: 5
+  21:
+    type: lead
+    quantity: 20
+  22:
+    type: emerald
+    quantity: 64
+  23:
+    type: shield
+    quantity: 1
+  24: 
+    type: water_bucket
+    quantity: 1
+  25:
+    type: lava_bucket
+    quantity: 1
+  26:
+    type: saddle
+    quantity: 20
+  27:
+    type: fishing_rod
+    quantity: 1
+  28:
+    type: shears
+    quantity: 1
+  29:
+    type: pink_dye
+    quantity: 64
+  30: 
+    type: bow
+    quantity: 1
+  32:
+    type: arrow
+    quantity: 64
+  33:
+    type: iron_axe
+    quantity: 1
+  34:
+    type: snow_block
+    quantity: 64
+  35:
+    type: carved_pumpkin
+    quantity: 64
+
+  0:
+    type: iron_shovel
+    quantity: 1
+
+
+fast_reset: True
+slow_reset_interval: 10
+random_tp_range: 1000
+start_time: 0
+compute_delta_inventory: False
+candidate_preferred_spawn_biome: 
+  - stone_shore
+  - forest
+  - plains
+  # - village
+candidate_weather: 
+  - clear
+
+summon_mobs: 
+  - 
+    mob_name: sheep
+    range_x: [-30, 30]
+    range_z: [-30, 30]
+    number: 10
+  - 
+    mob_name: cow
+    range_x: [-30, 30]
+    range_z: [-30, 30]
+    number: 10
+  - 
+    mob_name: pig
+    range_x: [-30, 30]
+    range_z: [-30, 30]
+    number: 10
+enable_tasks: 
+  - traj_condition
+
+custom_init_commands:
+  - /gamerule keepInventory true
+  - /effect give @a night_vision 99999 250 true
+  - /difficulty peaceful
+  - /gamerule doDaylightCycle false
+  # - /time set night
+  
+  - /replaceitem entity @s armor.head minecraft:diamond_helmet
+  - /replaceitem entity @s armor.chest minecraft:diamond_chestplate
+  - /replaceitem entity @s armor.legs minecraft:diamond_leggings
+  - /replaceitem entity @s armor.feet minecraft:diamond_boots
+
+  - /give @p minecraft:trident{Enchantments:[{id:"minecraft:riptide",lvl:1}]} 1
+
+task_conf:
+  traj_condition:
+    text: "collect wood"
+    obs_conf:
+      text: "cut down trees for wood"
+      ctraj:
+        ref_video: "reference_videos/collect_wood.mp4"
+        ref_mask: "${oc.env:REF_MASK}"
+        scale: "(1.0 + (${oc.env:COND_SCALE}))"
+      ctraj_sub:
+        ref_video: "reference_videos/survive_combat.mp4"
+        ref_mask: "${oc.env:SUB_REF_MASK}"
+        scale: "(- ${oc.env:COND_SCALE})"
+    reward_conf:
+      mine_block: 
+        log:
+          quantity_rewarded: 100
+          reward: 1
+          objs:
+            - oak_log
+            - spruce_log
+            - birch_log
+            - jungle_log
+            - acacia_log
+            - dark_oak_log
+            - stripped_oak_log
+            - stripped_spruce_log
+            - stripped_birch_log
+            - stripped_jungle_log
+            - stripped_acacia_log
+            - stripped_dark_oak_log
+
+
+reset_inventory_open: False
+
+# masked_actions: 
+#   # inventory: 0
+#   hotbar.1: 0
+#   hotbar.2: 0
+#   hotbar.3: 0
+#   hotbar.4: 0
+#   hotbar.5: 0
+#   hotbar.6: 0
+#   hotbar.7: 0
+#   hotbar.8: 0
+#   hotbar.9: 0

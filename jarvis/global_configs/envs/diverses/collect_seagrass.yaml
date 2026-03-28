@@ -1,0 +1,28 @@
+
+defaults:
+  - base
+  - _self_
+
+task_conf:
+  traj_condition:
+    text: "Locate a body of water, dive underwater, and mine the seagrass."
+    obs_conf:
+      task: "collect: seagrass"
+      ref_video: "reference_videos/collect_seagrass.mp4"
+      ins_type: "${oc.env:INS_TYPE}"
+    reward_conf:
+      mine_block: 
+        seagrass:
+          objs:
+            - seagrass
+            - tall_seagrass
+            - kelp
+            - kelp_plant
+          quantity_rewarded: 1000
+          reward: 1.0
+
+
+candidate_preferred_spawn_biome: 
+  - sea
+candidate_weather: 
+  - clear

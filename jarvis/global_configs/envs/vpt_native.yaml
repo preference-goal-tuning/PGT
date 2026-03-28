@@ -1,0 +1,125 @@
+defaults:
+  - _self_
+
+task_conf:
+  vpt_rl:
+    text: 'vpt_rl'
+    reward_conf:
+      craft_item:
+        plank:
+          quantity_rewarded: 20
+          reward: 0.05
+          objs:
+            - oak_planks
+            - spruce_planks
+            - birch_planks
+            - jungle_planks
+            - acacia_planks
+            - dark_oak_planks
+        stick:
+          quantity_rewarded: 16
+          reward: 0.0625
+          objs:
+            - stick
+        crafting_table:
+          quantity_rewarded: 1
+          reward: 1.0
+          objs:
+            - crafting_table
+        wooden_pickaxe:
+          quantity_rewarded: 1
+          reward: 1.0
+          objs:
+            - wooden_pickaxe
+        stone_pickaxe:
+          quantity_rewarded: 1
+          reward: 1.0
+          objs:
+            - stone_pickaxe
+        furnace:
+          quantity_rewarded: 1
+          reward: 1.0
+          objs:
+            - furnace
+        torch:
+          quantity_rewarded: 16
+          reward: 0.125
+          objs:
+            - torch
+        iron_ingot:
+          quantity_rewarded: 3
+          reward: 1.333333
+          objs:             # TODO: craft_item: iron_ingot?
+            - iron_ingot
+        iron_pickaxe:
+          quantity_rewarded: 1
+          reward: 4.0
+          objs:
+            - iron_pickaxe
+        diamond_pickaxe:
+          quantity_rewarded: 100000000
+          reward: 8.0
+          objs:
+            - diamond_pickaxe
+      pickup:
+        log:
+          quantity_rewarded: 8
+          reward: 0.125
+          objs:
+            - oak_log
+            - spruce_log
+            - birch_log
+            - jungle_log
+            - acacia_log
+            - dark_oak_log
+            - stripped_oak_log
+            - stripped_spruce_log
+            - stripped_birch_log
+            - stripped_jungle_log
+            - stripped_acacia_log
+            - stripped_dark_oak_log
+        cobblestone:
+          quantity_rewarded: 11
+          reward: 0.090909
+          objs:
+            - cobblestone
+        coal:
+          quantity_rewarded: 5
+          reward: 0.4
+          objs:
+            - coal
+        iron_ore:
+          quantity_rewarded: 3
+          reward: 1.333333
+          objs:
+            - iron_ore
+        diamond:
+          quantity_rewarded: 100000000
+          reward: 2.666667
+          objs:
+            - diamond
+        
+
+close_ended: False
+seed: 19961103
+
+origin_resolution: [640, 360]
+resize_resolution: [128, 128]
+
+time_limit: 12000
+
+fast_reset: False
+slow_reset_interval: 9
+random_tp_range: 1000
+start_time: 0
+compute_delta_inventory: False
+candidate_preferred_spawn_biome: 
+  - plains
+candidate_weather: 
+  - clear
+
+enable_tasks: 
+  - vpt_rl
+
+custom_init_commands:
+  - /effect give @a night_vision 99999 250 true

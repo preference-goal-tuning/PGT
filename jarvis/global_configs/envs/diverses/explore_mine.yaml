@@ -1,0 +1,49 @@
+
+defaults:
+  - base
+  - _self_
+
+task_conf:
+  traj_condition:
+    text: "Mine block cobblestone."
+    obs_conf:
+      task: "explore: mine ores"
+      ref_video: "reference_videos/explore_mine.mp4"
+      ins_type: "${oc.env:INS_TYPE}"
+    reward_conf:
+      mine_block: 
+        ores:
+          objs:
+            - stone
+            - cobblestone
+            - coal_ore
+            - iron_ore
+            - diamond_ore
+          quantity_rewarded: 1000
+          reward: 1.0
+
+
+candidate_preferred_spawn_biome: 
+  - deep_cave
+candidate_weather: 
+  - clear
+
+init_inventory: 
+  0: 
+    type: iron_pickaxe
+    quantity: 1
+
+custom_init_commands:
+  - /effect give @a night_vision 99999 250 true
+
+masked_actions: 
+  inventory: 0
+  hotbar.1: 0
+  hotbar.2: 0
+  hotbar.3: 0
+  hotbar.4: 0
+  hotbar.5: 0
+  hotbar.6: 0
+  hotbar.7: 0
+  hotbar.8: 0
+  hotbar.9: 0

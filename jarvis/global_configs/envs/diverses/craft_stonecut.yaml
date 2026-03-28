@@ -1,0 +1,72 @@
+
+defaults:
+  - base
+  - _self_
+
+task_conf:
+  traj_condition:
+    text: "Place stonecutter and interact with the stonecutter."
+    obs_conf:
+      task: "craft: stonecut"
+      ref_video: "reference_videos/craft_stonecutter.mp4"
+      ins_type: "${oc.env:INS_TYPE}"
+    reward_conf:
+      craft_item: 
+        cut_stones:
+          objs:
+            - stone_slab
+            - stone_bricks
+            - stone_brick_slab
+            - stone_brick_stairs
+            - stone_brick_wall
+            - chiseled_stone_bricks
+            - cracked_stone_bricks
+            - mossy_stone_bricks
+          quantity_rewarded: 100
+          reward: 1.0
+
+
+
+candidate_preferred_spawn_biome: 
+  - plains
+candidate_weather: 
+  - clear
+
+init_inventory: 
+  0: 
+    type: stonecutter
+    quantity: 1
+  13: 
+    type: stone
+    quantity: 64
+  14: 
+    type: cobblestone
+    quantity: 64
+  22: 
+    type: stone
+    quantity: 64
+  23: 
+    type: cobblestone
+    quantity: 64
+  31: 
+    type: stone
+    quantity: 64
+  32: 
+    type: cobblestone
+    quantity: 64
+
+custom_init_commands:
+  - /experience add @s 64 levels
+
+
+masked_actions: 
+  inventory: 0
+  hotbar.1: 0
+  hotbar.2: 0
+  hotbar.3: 0
+  hotbar.4: 0
+  hotbar.5: 0
+  hotbar.6: 0
+  hotbar.7: 0
+  hotbar.8: 0
+  hotbar.9: 0
